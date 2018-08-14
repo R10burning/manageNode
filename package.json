@@ -1,0 +1,10 @@
+{
+  "name": "manageNode",
+  "version": "1.0.0",
+  "description": "管理后台",
+  "main": "server.js",
+  "repository": "https://github.com/R10burning/manageNode.git",
+  "author": "R10",
+  "license": "MIT",
+  "private": true
+}
