@@ -1,5 +1,5 @@
 // 全局安装npm i supervisor -g ====>supervisor server.js
-const express = require('express')
+import express from 'express'
 
 const app = express()
 
