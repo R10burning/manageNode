@@ -1,10 +1,10 @@
 //1:加载对应模块
 import http from 'http'
 import express from 'express'
-import bodyParser from 'body-parser'        //处理post请求
-import cookieParser from 'cookie-parser'    //session
-import expressSession from 'express-session'//session
-import cors from 'cors'                      //cors
+import bodyParser from 'body-parser' //处理post请求
+import cookieParser from 'cookie-parser' //session
+import expressSession from 'express-session' //session
+import cors from 'cors' //cors
 import pool from './connect/pool'
 import fs from 'fs'
 //导入加密模块
@@ -13,19 +13,18 @@ const crypto = require('crypto')
 //3:创建express 对象
 let app = express()
 let server = http.createServer(app)
-server.listen(3000)
-app.use(cors({
-	origin: ['http://127.0.0.1'],
-	credentials: true
-}))
+server.listen(9498)
+app.use(cors({}))
 //4.2:post  req.body.uname
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({
+	extended: false
+}))
 //4.3:cookie/session
 app.use(cookieParser())
 app.use(expressSession({
-	resave: false,           //每次请求是否重新设置session
-	saveUninitialized: true,//每次请求是否设置cookie
-	secret: 'teducn',       //https加密码传输，密钥
+	resave: false, //每次请求是否重新设置session
+	saveUninitialized: true, //每次请求是否设置cookie
+	secret: 'teducn', //https加密码传输，密钥
 }))
 //5:指定静态资源目录  public
 // app.get("/index", (req, res) => {
@@ -72,7 +71,7 @@ app.get('/list', (req, res) => {
 		let sql = 'SELECT r10_user.`name` FROM r10_user'
 		conn.query(sql, (err, result) => {
 			if (err) throw err
-			res.send(result[0].name)
+			res.json(result)
 		})
 	})
 })
