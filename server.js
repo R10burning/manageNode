@@ -100,13 +100,27 @@ app.get('/menu', (req, res) => {
 		'parent_id': 0,
 		'menu_name': '第一级菜单 2',
 		'sorting': 0,
-		'node': [{
-			'id': 5,
-			'parent_id': 4,
-			'menu_name': '第二级菜单 2-1',
-			'sorting': 0
-		}]
-	}
+		'node': [
+			{
+				'id': 5,
+				'parent_id': 4,
+				'menu_name': '第二级菜单 2-1',
+				'sorting': 0
+			},
+			{
+				'id': 6,
+				'parent_id': 4,
+				'menu_name': '第二级菜单 2-2',
+				'sorting': 0
+			},
+		]
+	},
+	{
+		'id': 7,
+		'parent_id': 0,
+		'menu_name': '第一级菜单 3',
+		'sorting': 0,
+	},
 	]
 	res.json(menuData)
 })
